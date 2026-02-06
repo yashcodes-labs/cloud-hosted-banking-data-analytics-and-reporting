@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CloudBankX – Online Banking </title>
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif; }
+
+    body { background: #f4f6f8; color: #222; }
+
+    /* Top Bar */
+    .top-bar {
+      background: #f15a49fa;
+      color: #fff;
+      padding: 8px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    /* Header */
+    header {
+      background: #fff;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 5px solid #f6422e;
+      position: relative;
+    }
+
+    .logo-circle::after {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: #f6422e;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #f6422e;
+      font-weight: bold;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(to right, #e36254f2, #e36254f2);
+      color: #fff;
+      padding: 60px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .hero h1 { font-size: 36px; margin-bottom: 15px; }
+    .hero p { font-size: 18px; margin-bottom: 25px; }
+
+    .login-box {
+      background: #fff;
+      color: #222;
+      padding: 25px;
+      border-radius: 10px;
+      max-width: 400px;
+    }
+
+    .login-box h2 { margin-bottom: 20px; color: #f6422ef2; }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background: #f6422ef2;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .login-box button:hover { background: #000000; }
+
+    /* Services */
+    .services {
+      padding: 50px 20px;
+      background: #fff;
+    }
+
+    .services h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #f6422ef2;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #f6422ef2;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .card h3 { margin-bottom: 10px; color: #fff; }
+
+    /* Footer */
+    footer {
+      background: #f6422ef2;
+      color: #fff;
+      padding: 25px 20px;
+      text-align: center; 
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .login-box { margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <span>CloudBankX</span>
+    <span>Customer Care | हिंदी</span>
+  </div>
+
+  <header>
+    <div class="logo">
+      <div class="logo-circle"></div>
+      <strong>CloudBankX – Online Banking</strong>
+    </div>
+    <nav>
+      <a href="{{ url_for('home') }}">Home</a>
+      <a href="{{ url_for('corporate') }}">Corporate</a>
+      <a href="{{ url_for('nri') }}">NRI</a>
+      <a href="{{ url_for('contact') }}">Contact</a>
+
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Welcome to Online CloudBankX</h1>
+      <p>Simple. Secure. Smart Banking Experience.</p>
+    </div>
+
+    <div class="login-box">
+  <h2>Login to Internet Banking</h2>
+
+  <form method="POST" action="/login">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+  </form>
+
+  <p style="margin-top:10px;">
+    New user?
+    <a href="/signup" style="color:#ff6422; font-weight:bold;">
+      Create Account
+    </a>
+  </p>
+</div>
+
+
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+      <div class="card">
+        <h3>Accounts</h3>
+        <p>Savings & Current Accounts</p>
+      </div>
+      <div class="card">
+        <h3>Loans</h3>
+        <p>Home, Education & Personal Loans</p>
+      </div>
+      <div class="card">
+        <h3>Cards</h3>
+        <p>Debit & Credit Cards</p>
+      </div>
+      <div class="card">
+        <h3>Digital Banking</h3>
+        <p>ATM & Mobile Banking</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 CloudBankX – Online Banking of India </p>
+  
+  <div class="footer-right">
+    <p><strong>About CloudBankX</strong></p>
+    <p>
+      CloudBankX provides secure digital banking services including
+      savings accounts, loans, cards and mobile banking solutions.
+    </p>
+    <p>
+      The CloudBankX website serves as a key investor awareness facility, allowing stakeholders to access information on Bank at their convenience.
+    </p>
+    <p> Ways to Bank <b> Digital Banking, Mobile Banking, ATM, Net Banking.</b></p>
+    <p><b> CONTACT US- 10801 0891</b></p>
+  </div>
+  </footer>
+</body>
+</html>

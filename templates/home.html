@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CloudBankX – Home Notices</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: #f4f6f8;
+}
+
+.home-notice {
+  max-width: 900px;
+  margin: 30px auto;
+  background: #fff7f0;
+  border-left: 6px solid #f58220;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  animation: slideIn 0.8s ease-in-out;
+  overflow: hidden;
+}
+
+.notice-header {
+  background: linear-gradient(90deg, #f58220, #ff9f45);
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notice-header h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+
+.notice-list {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+}
+
+.notice-list li {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  margin-bottom: 12px;
+  background: #ffffff;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.notice-list li:hover {
+  background: #fff1e6;
+  transform: translateX(5px);
+}
+
+.icon {
+  font-size: 20px;
+  color: #f58220;
+}
+
+.notice-list p {
+  margin: 0;
+  color: #333;
+  font-size: 15px;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .home-notice {
+    margin: 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="home-notice">
+  <div class="notice-header">
+    <h3>🏦 CloudBankX – Important Notices</h3>
+    <button class="close-btn" onclick="goHome()">✖</button>
+  </div>
+
+  <ul class="notice-list">
+    <li><span class="icon">⚡</span><p>If slowness is observed during Login Page loading, please refresh.</p></li>
+    <li><span class="icon">🔐</span><p>CloudBankX never asks for PIN / OTP.</p></li>
+    <li><span class="icon">🌐</span><p>New Online Banking URL: <b>onlinecloudbank.X.bank</b></p></li>
+    <li><span class="icon">💳</span><p>Tax payments available via Debit & Credit Cards.</p></li>
+    <li><span class="icon">🔄</span><p>Password change mandatory after 365 days.</p></li>
+    <li><span class="icon">🚫</span><p>Do not share Card / PIN / OTP / CVV.</p></li>
+  </ul>
+</section>
+
+<script>
+function goHome() {
+  // 🔁 Change this path if needed
+  window.location.href = "/";
+  // Examples:
+  // window.location.href = "index.html";
+  // window.location.href = "/home";
+}
+</script>
+
+</body>
+</html>

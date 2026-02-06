@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CloudBankX | Corporate Banking</title>
+
+<style>
+:root{
+  --p:#f15a49;
+  --s:#ff8a65;
+  --bg1:#fff1ee;
+  --bg2:#ffe5e0;
+}
+
+/* ===== GLOBAL ===== */
+body{
+  margin:0;
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  color:#2c2c2c;
+  overflow-x:hidden;
+}
+
+/* ===== FLOATING SHAPES ===== */
+.shape{
+  position:fixed;
+  border-radius:50%;
+  filter:blur(90px);
+  opacity:.35;
+  z-index:-1;
+}
+.shape.one{width:320px;height:320px;background:linear-gradient(135deg,var(--p),var(--s));top:-120px;left:-120px;}
+.shape.two{width:420px;height:420px;background:linear-gradient(135deg,#ffb199,#ff0844);bottom:-180px;right:-180px;}
+.shape.three{width:260px;height:260px;background:linear-gradient(135deg,var(--p),#ffd3cc);top:40%;right:10%;}
+
+/* ===== HEADER ===== */
+.header{
+  background:linear-gradient(90deg,var(--p),var(--s));
+  color:#fff;
+  padding:22px 40px;
+  font-size:24px;
+  font-weight:600;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+/* ===== LAYOUT ===== */
+.container{display:flex;min-height:calc(100vh - 78px);}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+  width:260px;
+  background:linear-gradient(180deg,#ffffff,#fff2ef);
+  box-shadow:4px 0 25px rgba(0,0,0,.08);
+}
+.sidebar ul{list-style:none;margin:0;padding:0;}
+.sidebar li{
+  padding:18px 22px;
+  border-bottom:1px solid #f1d6d1;
+  cursor:pointer;
+  transition:.35s;
+  position:relative;
+}
+.sidebar li::before{
+  content:"";
+  position:absolute;
+  left:0;top:0;
+  width:4px;height:100%;
+  background:transparent;
+}
+.sidebar li:hover,
+.sidebar li.active{
+  background:linear-gradient(90deg,#fff0ec,#ffe1db);
+  color:var(--p);
+  font-weight:600;
+}
+.sidebar li.active::before{
+  background:linear-gradient(180deg,var(--p),var(--s));
+}
+
+/* ===== CONTENT ===== */
+.content{
+  flex:1;
+  padding:40px;
+}
+
+/* ===== HERO STRIP ===== */
+.hero{
+  background:linear-gradient(135deg,var(--p),var(--s));
+  color:#fff;
+  padding:30px;
+  border-radius:20px;
+  margin-bottom:30px;
+  box-shadow:0 20px 45px rgba(241,90,73,.35);
+}
+.hero h1{margin:0;font-size:28px;}
+.hero p{margin:8px 0 0;opacity:.95}
+
+/* ===== CAPABILITY STRIP ===== */
+.caps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
+  margin-bottom:35px;
+}
+.cap{
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(10px);
+  border-radius:16px;
+  padding:18px;
+  text-align:center;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+}
+.cap h3{margin:0;color:var(--p);font-size:22px;}
+.cap span{font-size:13px;color:#555}
+
+/* ===== SECTIONS ===== */
+.section{display:none;}
+.section.active{display:block;}
+
+/* ===== CARDS ===== */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+.card{
+  background:linear-gradient(135deg,#ffffff,#fff6f4);
+  border-radius:18px;
+  padding:26px;
+  box-shadow:0 15px 35px rgba(0,0,0,.12);
+  border:1px solid #ffe1db;
+  position:relative;
+  overflow:hidden;
+}
+.card::after{
+  content:"";
+  position:absolute;
+  top:-40px;right:-40px;
+  width:110px;height:110px;
+  background:linear-gradient(135deg,var(--p),var(--s));
+  opacity:.12;border-radius:50%;
+}
+.card h4{margin:0 0 10px;color:var(--p);}
+.card p{margin:0;font-size:14px;color:#555;line-height:1.5}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .container{flex-direction:column;}
+  .sidebar{width:100%;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="shape one"></div>
+<div class="shape two"></div>
+<div class="shape three"></div>
+
+<div class="header">🏢 CloudBankX – Corporate Banking</div>
+
+<div class="container">
+
+  <div class="sidebar">
+    <ul>
+      <li class="active" onclick="show('accounts',this)">Accounts</li>
+      <li onclick="show('cash',this)">Cash Management</li>
+      <li onclick="show('payments',this)">Payments</li>
+      <li onclick="show('trade',this)">Trade & Forex</li>
+      <li onclick="show('loans',this)">Loans & Credit</li>
+      <li onclick="show('tax',this)">Tax & Compliance</li>
+      <li onclick="show('reports',this)">Reports</li>
+      <li onclick="show('settings',this)">Settings</li>
+    </ul>
+  </div>
+
+  <div class="content">
+
+    <!-- ACCOUNTS -->
+    <div id="accounts" class="section active">
+      <div class="hero">
+        <h1>Corporate Accounts</h1>
+        <p>Enterprise-grade account structures with centralized control</p>
+      </div>
+
+      <div class="caps">
+        <div class="cap"><h3>20+</h3><span>Account Structures</span></div>
+        <div class="cap"><h3>Multi-City</h3><span>Branch Access</span></div>
+        <div class="cap"><h3>High-Volume</h3><span>Transactions</span></div>
+        <div class="cap"><h3>Secure</h3><span>Controls</span></div>
+      </div>
+
+      <div class="cards">
+        <div class="card"><h4>Current Accounts</h4><p>Built for large-scale business operations.</p></div>
+        <div class="card"><h4>Escrow Accounts</h4><p>Secure holding of funds for agreements.</p></div>
+        <div class="card"><h4>Trust & Nodal</h4><p>Specialized institutional accounts.</p></div>
+        <div class="card"><h4>Multi-Location</h4><p>Centralized control across branches.</p></div>
+      </div>
+    </div>
+
+    <!-- CASH -->
+    <div id="cash" class="section">
+      <div class="hero"><h1>Cash Management</h1><p>Liquidity optimization & receivables efficiency</p></div>
+      <div class="cards">
+        <div class="card"><h4>Collections</h4><p>Virtual & digital receivables.</p></div>
+        <div class="card"><h4>Liquidity</h4><p>Smart surplus fund utilization.</p></div>
+        <div class="card"><h4>Auto Reconciliation</h4><p>Instant payment matching.</p></div>
+        <div class="card"><h4>Cash Concentration</h4><p>Centralize balances.</p></div>
+      </div>
+    </div>
+
+    <!-- PAYMENTS -->
+    <div id="payments" class="section">
+      <div class="hero"><h1>Payments</h1><p>Approval-based, secure disbursements</p></div>
+      <div class="cards">
+        <div class="card"><h4>Bulk Payments</h4><p>Salary & vendor payouts.</p></div>
+        <div class="card"><h4>NEFT / RTGS</h4><p>Fast domestic transfers.</p></div>
+        <div class="card"><h4>Maker-Checker</h4><p>Multi-level approvals.</p></div>
+        <div class="card"><h4>Scheduled Payments</h4><p>Automated recurring payments.</p></div>
+      </div>
+    </div>
+
+    <!-- TRADE -->
+    <div id="trade" class="section">
+      <div class="hero"><h1>Trade & Forex</h1><p>Global trade finance & FX solutions</p></div>
+      <div class="cards">
+        <div class="card"><h4>Import / Export</h4><p>End-to-end trade finance.</p></div>
+        <div class="card"><h4>Letters of Credit</h4><p>Secure international trade.</p></div>
+        <div class="card"><h4>Bank Guarantees</h4><p>Financial & performance guarantees.</p></div>
+        <div class="card"><h4>Forex Services</h4><p>Competitive FX solutions.</p></div>
+      </div>
+    </div>
+
+    <!-- LOANS -->
+    <div id="loans" class="section">
+      <div class="hero"><h1>Loans & Credit</h1><p>Capital solutions for growth</p></div>
+      <div class="cards">
+        <div class="card"><h4>Working Capital</h4><p>Daily operational funding.</p></div>
+        <div class="card"><h4>Term Loans</h4><p>Expansion financing.</p></div>
+        <div class="card"><h4>Overdraft</h4><p>Flexible credit access.</p></div>
+        <div class="card"><h4>Supply Chain Finance</h4><p>Vendor & distributor support.</p></div>
+      </div>
+    </div>
+
+    <!-- TAX -->
+    <div id="tax" class="section">
+      <div class="hero"><h1>Tax & Compliance</h1><p>Simplified statutory payments</p></div>
+      <div class="cards">
+        <div class="card"><h4>GST Payments</h4><p>Online GST payments.</p></div>
+        <div class="card"><h4>TDS / TCS</h4><p>Tax compliance support.</p></div>
+        <div class="card"><h4>Income Tax</h4><p>Corporate tax payments.</p></div>
+        <div class="card"><h4>Challans</h4><p>Instant receipts.</p></div>
+      </div>
+    </div>
+
+    <!-- REPORTS -->
+    <div id="reports" class="section">
+      <div class="hero"><h1>Reports</h1><p>Visibility & audit readiness</p></div>
+      <div class="cards">
+        <div class="card"><h4>Statements</h4><p>Custom report views.</p></div>
+        <div class="card"><h4>Payment Reports</h4><p>Disbursement tracking.</p></div>
+        <div class="card"><h4>Audit Logs</h4><p>Activity trails.</p></div>
+        <div class="card"><h4>Exports</h4><p>PDF & Excel formats.</p></div>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div id="settings" class="section">
+      <div class="hero"><h1>Settings</h1><p>Security & access control</p></div>
+      <div class="cards">
+        <div class="card"><h4>User Roles</h4><p>Role-based permissions.</p></div>
+        <div class="card"><h4>Approval Flow</h4><p>Authorization hierarchy.</p></div>
+        <div class="card"><h4>Security</h4><p>Password & device controls.</p></div>
+        <div class="card"><h4>Notifications</h4><p>Email & SMS alerts.</p></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function show(id,el){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.sidebar li').forEach(l=>l.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+}
+</script>
+
+</body>
+</html>

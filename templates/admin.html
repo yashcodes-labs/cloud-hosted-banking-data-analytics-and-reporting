@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard - ICIC Bank</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h2>Admin Dashboard</h2>
+
+<div class="admin-cards">
+  <div class="card">Total Users<br><b>{{ total_users }}</b></div>
+  <div class="card">Total Transactions<br><b>{{ total_transactions }}</b></div>
+  <div class="card">Total Bank Balance<br><b>₹{{ total_balance }}</b></div>
+</div>
+
+<h3>Users Overview</h3>
+
+<table border="1" cellpadding="8">
+  <tr>
+    <th>User</th>
+    <th>Balance</th>
+    <th>Transactions</th>
+  </tr>
+
+  {% for user, data in users_data.items() %}
+  <tr>
+    <td>{{ user }}</td>
+    <td>₹{{ data.balance }}</td>
+    <td>{{ data.transactions | length }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create Account – CloudBankX Online Banking</title>
+
+<style>
+body{
+  margin:0;
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:linear-gradient(135deg,#fff1ee,#ffe5e0);
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.login-box{
+  width:380px;
+  background:#ffffff;
+  padding:35px;
+  border-radius:16px;
+  box-shadow:0 20px 45px rgba(0,0,0,.2);
+}
+
+.login-box h2{
+  text-align:center;
+  color:#f15a49;
+  margin-bottom:25px;
+}
+
+.login-box input{
+  width:100%;
+  padding:12px 14px;
+  margin-bottom:14px;
+  border-radius:8px;
+  border:1px solid #ddd;
+  font-size:14px;
+}
+
+.login-box input:focus{
+  outline:none;
+  border-color:#f15a49;
+}
+
+.strength{
+  font-size:12px;
+  margin-bottom:12px;
+}
+
+.strength span{
+  font-weight:600;
+}
+
+.weak{color:red;}
+.medium{color:orange;}
+.strong{color:green;}
+
+button{
+  width:100%;
+  padding:12px;
+  background:linear-gradient(135deg,#f15a49,#ff8a65);
+  border:none;
+  border-radius:10px;
+  color:white;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+button:hover{
+  opacity:.9;
+}
+
+p{
+  text-align:center;
+  margin-top:15px;
+  font-size:14px;
+}
+
+a{
+  color:#f15a49;
+  text-decoration:none;
+  font-weight:600;
+}
+
+.error{
+  color:red;
+  font-size:13px;
+  margin-bottom:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+  <h2>Create New Account</h2>
+
+  <div id="error" class="error"></div>
+
+  <form method="POST" action="/signup" onsubmit="return validateForm()">
+    <input type="text" name="username" placeholder="Username" required>
+
+    <input type="email" name="email" placeholder="Email Address" required>
+
+    <input type="password" id="password" name="password"
+           placeholder="Password"
+           onkeyup="checkStrength()"
+           required>
+
+    <div class="strength">
+      Password strength:
+      <span id="strengthText">—</span>
+    </div>
+
+    <input type="password" id="confirm_password"
+           name="confirm_password"
+           placeholder="Confirm Password"
+           required>
+
+    <button type="submit">Create Account</button>
+  </form>
+
+  <p>
+    Already have an account?
+    <a href="/">Login</a>
+  </p>
+</div>
+
+<script>
+function checkStrength(){
+  const pwd = document.getElementById("password").value;
+  const strengthText = document.getElementById("strengthText");
+
+  let strength = 0;
+  if(pwd.length >= 8) strength++;
+  if(/[A-Z]/.test(pwd)) strength++;
+  if(/[0-9]/.test(pwd)) strength++;
+  if(/[@$!%*?&]/.test(pwd)) strength++;
+
+  if(strength <= 1){
+    strengthText.textContent = "Weak";
+    strengthText.className = "weak";
+  }else if(strength === 2 || strength === 3){
+    strengthText.textContent = "Medium";
+    strengthText.className = "medium";
+  }else{
+    strengthText.textContent = "Strong";
+    strengthText.className = "strong";
+  }
+}
+
+function validateForm(){
+  const pwd = document.getElementById("password").value;
+  const cpwd = document.getElementById("confirm_password").value;
+  const error = document.getElementById("error");
+
+  const strongPwd = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+  if(!strongPwd.test(pwd)){
+    error.textContent =
+      "Password must be at least 8 characters and include uppercase, number & special character.";
+    return false;
+  }
+
+  if(pwd !== cpwd){
+    error.textContent = "Passwords do not match.";
+    return false;
+  }
+
+  return true;
+}
+</script>
+
+</body>
+</html>

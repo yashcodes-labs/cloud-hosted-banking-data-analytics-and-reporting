@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CloudBankX | Retail • Corporate • NRI Banking</title>
+
+<style>
+:root{
+  --pri:#f15a49;
+  --sec:#ff8a65;
+  --dark:#1f1f1f;
+}
+
+/* ===== GLOBAL ===== */
+body{
+  margin:0;
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:linear-gradient(135deg,#fff1ee,#ffe5e0);
+  color:#2c2c2c;
+  overflow-x:hidden;
+}
+
+/* ===== WORLD MAP BACKGROUND ===== */
+.world{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 30%,rgba(241,90,73,.25),transparent 40%),
+    radial-gradient(circle at 80% 70%,rgba(255,138,101,.25),transparent 40%);
+  z-index:-1;
+}
+
+/* ===== HEADER ===== */
+.header{
+  background:linear-gradient(90deg,var(--pri),var(--sec));
+  color:#fff;
+  padding:22px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+.nav button{
+  background:rgba(255,255,255,.15);
+  border:none;
+  color:#fff;
+  padding:10px 18px;
+  margin-left:10px;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:600;
+}
+.nav button.active{
+  background:#fff;
+  color:var(--pri);
+}
+
+/* ===== HERO ===== */
+.hero-main{
+  padding:60px 40px;
+  text-align:center;
+}
+.hero-main h1{
+  font-size:38px;
+  margin-bottom:10px;
+}
+.hero-main p{
+  max-width:800px;
+  margin:auto;
+  font-size:17px;
+  opacity:.85;
+}
+
+/* ===== SECTIONS ===== */
+.section{display:none;padding:40px;}
+.section.active{display:block;}
+
+.hero-strip{
+  background:linear-gradient(135deg,var(--pri),var(--sec));
+  color:#fff;
+  padding:30px;
+  border-radius:22px;
+  margin-bottom:35px;
+  box-shadow:0 20px 45px rgba(241,90,73,.35);
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:linear-gradient(135deg,#ffffff,#fff6f4);
+  border-radius:18px;
+  padding:26px;
+  box-shadow:0 15px 35px rgba(0,0,0,.12);
+  border:1px solid #ffe1db;
+  position:relative;
+}
+.card::after{
+  content:"";
+  position:absolute;
+  top:-40px;right:-40px;
+  width:120px;height:120px;
+  background:linear-gradient(135deg,var(--pri),var(--sec));
+  opacity:.12;
+  border-radius:50%;
+}
+.card h4{margin:0 0 10px;color:var(--pri);}
+.card p{margin:0;font-size:14px;color:#555;line-height:1.5}
+
+/* ===== FOOTER ===== */
+.footer{
+  text-align:center;
+  padding:20px;
+  font-size:13px;
+  color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="world"></div>
+
+<!-- HEADER -->
+<div class="header">
+  <div><b>🏦 CloudBankX – Online Banking</b></div>
+  <div class="nav">
+    <button class="active" onclick="showTab('retail',this)">Retail</button>
+    <button onclick="showTab('corporate',this)">Corporate</button>
+    <button onclick="showTab('nri',this)">NRI</button>
+  </div>
+</div>
+
+<!-- MAIN HERO -->
+<div class="hero-main">
+  <h1>One Bank. Global Solutions.</h1>
+  <p>Retail banking for individuals, corporate solutions for enterprises, and global banking services for NRIs — all on one secure digital platform.</p>
+</div>
+
+<!-- RETAIL -->
+<div id="retail" class="section active">
+  <div class="hero-strip">
+    <h2>Retail Banking</h2>
+    <p>Everyday banking solutions for individuals</p>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>Savings & Current Accounts</h4><p>Flexible personal banking accounts.</p></div>
+    <div class="card"><h4>Cards</h4><p>Debit & credit card services.</p></div>
+    <div class="card"><h4>Loans</h4><p>Home, education & personal loans.</p></div>
+    <div class="card"><h4>Digital Banking</h4><p>24×7 online & mobile banking.</p></div>
+  </div>
+</div>
+
+<!-- CORPORATE -->
+<div id="corporate" class="section">
+  <div class="hero-strip">
+    <h2>Corporate Banking</h2>
+    <p>Enterprise-grade financial solutions</p>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>Cash Management</h4><p>Liquidity & receivables optimization.</p></div>
+    <div class="card"><h4>Payments</h4><p>Bulk & approval-based disbursements.</p></div>
+    <div class="card"><h4>Trade Finance</h4><p>Import–export banking services.</p></div>
+    <div class="card"><h4>Loans & Credit</h4><p>Working capital & term loans.</p></div>
+  </div>
+</div>
+
+<!-- NRI -->
+<div id="nri" class="section">
+  <div class="hero-strip">
+    <h2>NRI Banking 🌍</h2>
+    <p>Banking solutions for Indians across the globe</p>
+  </div>
+  <div class="cards">
+    <div class="card"><h4>NRE / NRO / FCNR Accounts</h4><p>Special accounts for overseas Indians.</p></div>
+    <div class="card"><h4>International Remittance</h4><p>Fast & secure money transfer to India.</p></div>
+    <div class="card"><h4>NRI Investments</h4><p>Deposits, mutual funds & bonds.</p></div>
+    <div class="card"><h4>Loans for NRIs</h4><p>Home & property loans in India.</p></div>
+    <div class="card"><h4>Tax & Compliance</h4><p>TDS, repatriation & regulatory support.</p></div>
+    <div class="card"><h4>Global Digital Banking</h4><p>Manage accounts anytime, anywhere.</p></div>
+  </div>
+</div>
+
+<div class="footer">
+  © 2026 CloudBankX – Online Banking Ltd.
+</div>
+
+<script>
+function showTab(id,btn){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+</body>
+</html>

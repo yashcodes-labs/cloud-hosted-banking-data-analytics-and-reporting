@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Account - CloudBankX – Online Banking</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#f2f4f8;
+}
+
+/* HEADER */
+
+header{
+background:white;
+padding:18px 40px;
+display:flex;
+justify-content:space-between;
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+color:#f6422e;
+}
+
+nav a{
+margin-left:25px;
+text-decoration:none;
+font-weight:bold;
+color:#333;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:950px;
+margin:50px auto;
+}
+
+/* PROFILE CARD */
+
+.profile-card{
+background:white;
+padding:40px;
+border-radius:14px;
+box-shadow:0 8px 25px rgba(0,0,0,0.06);
+}
+
+.profile-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.profile-header h2{
+color:#f6422e;
+}
+
+.balance-box{
+background:linear-gradient(135deg,#ff6a5c,#f6422e);
+color:white;
+padding:25px;
+border-radius:12px;
+text-align:center;
+margin-bottom:35px;
+}
+
+.balance{
+font-size:38px;
+font-weight:bold;
+}
+
+/* DETAILS GRID */
+
+.details{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.detail-box{
+background:#f7f8fb;
+padding:18px;
+border-radius:10px;
+}
+
+.label{
+color:gray;
+font-size:14px;
+}
+
+.value{
+font-size:18px;
+font-weight:bold;
+margin-top:4px;
+}
+
+button{
+margin-top:35px;
+width:100%;
+padding:14px;
+border:none;
+border-radius:8px;
+background:#f6422e;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:black;
+}
+
+.logout{
+background:#333;
+}
+
+@media(max-width:768px){
+.details{
+grid-template-columns:1fr;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+CloudBankX
+</div>
+
+<nav>
+<a href="{{ url_for('home') }}">Home</a>
+<a href="{{ url_for('personal_banking') }}">Personal Banking</a>
+<a href="{{ url_for('logout') }}">Logout</a>
+</nav>
+
+</header>
+
+
+<div class="container">
+
+<div class="profile-card">
+
+<div class="profile-header">
+<h2>{{ user_data.name }}</h2>
+<p>Savings Account Holder</p>
+</div>
+
+<div class="balance-box">
+<p>Available Balance</p>
+<div class="balance">
+₹ {{ user_data.balance }}
+</div>
+</div>
+
+
+<div class="details">
+
+<div class="detail-box">
+<div class="label">Account Number</div>
+<div class="value">{{ user_data.account_number }}</div>
+</div>
+
+<div class="detail-box">
+<div class="label">Account Type</div>
+<div class="value">{{ user_data.account_type }}</div>
+</div>
+
+<div class="detail-box">
+<div class="label">Branch</div>
+<div class="value">{{ user_data.branch }}</div>
+</div>
+
+<div class="detail-box">
+<div class="label">IFSC Code</div>
+<div class="value">{{ user_data.ifsc }}</div>
+</div>
+
+</div>
+
+<a href="/personal-banking">
+<button>
+Open Personal Banking →
+</button>
+</a>
+
+<a href="/logout">
+<button class="logout">
+Logout
+</button>
+</a>
+
+</div>
+</div>
+
+</body>
+</html>

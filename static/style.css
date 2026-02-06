@@ -1,0 +1,259 @@
+/* ---------------- GLOBAL ---------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: #ff7a5c;
+    color: #222;
+}
+
+/* ---------------- TOP BAR ---------------- */
+.top-bar {
+    background: linear-gradient(90deg, #f6422e, #ff7a5c);
+    color: #fff;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+/* ---------------- HEADER ---------------- */
+header {
+    background: #bf8080;
+    padding: 14px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff6422;
+}
+
+.logo-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 4px solid #ff6422;
+    position: relative;
+}
+
+.logo-circle::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: #ff6422;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #ff6422;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #f6422e;
+}
+
+/* ---------------- HERO ---------------- */
+.hero {
+    background: linear-gradient(135deg, #f6422e, #ff7a5c);
+    color: #fff;
+    padding: 70px 40px;
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.95;
+}
+
+/* ---------------- LOGIN BOX ---------------- */
+.login-box {
+    background: #fff;
+    color: #333;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    animation: slideIn 0.7s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #f6422e;
+    text-align: center;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.login-box input:focus {
+    outline: none;
+    border-color:   e;
+    box-shadow: 0 0 5px rgba(246,66,46,0.5);
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #f6422e, #ff7a5c);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    background: #000;
+}
+
+.login-box p {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-box a {
+    color: #f6422e;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-box a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------- SERVICES ---------------- */
+.services {
+    padding: 60px 40px;
+    background: #f62121;
+}
+
+.services h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #f6422e;
+    font-size: 28px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: #164197;
+    padding: 30px 20px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+
+}
+
+/* ---------------- FOOTER ---------------- */
+footer {
+    background: #f6422e;
+    color: #ff6422;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .login-box {
+        margin: 0 auto;
+    }
+}
+
+
+
+.home-notice {
+  width: 100%;              /* 🔥 full width */
+  min-height: 250px;        /* 🔥 vertical space */
+  padding: 40px 60px;       /* 🔥 left-right breathing space */
+  background-color: #ff6422;
+  margin: 0 auto 40px auto;
+  box-sizing: border-box;
+}
+
+.home-notice h3 {
+  margin-bottom: 25px;
+  font-size: 22px;
+  color: #0b4da2;
+}
+
+.home-notice ul {
+  padding-left: 25px;
+}
+
+.home-notice li {
+  margin-bottom: 22px;      /* 🔥 gap between lines */
+  line-height: 1.9;         /* 🔥 line spacing */
+  font-size: 15px;
+  color: #333;
+}
+
+.home-notice {
+  border-left: 6px solid #0b4da2;
+}

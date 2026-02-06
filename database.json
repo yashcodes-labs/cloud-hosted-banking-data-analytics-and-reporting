@@ -1,0 +1,91 @@
+{
+    "admin": {
+        "balance": 57022.0,
+        "transactions": [
+            {
+                "date": "2026-01-25 23:49:22",
+                "type": "Deposit",
+                "amount": 400.0,
+                "balance": 16422.0
+            },
+            {
+                "date": "2026-01-26 21:13:04",
+                "type": "Deposit",
+                "amount": 100000.0,
+                "balance": 116422.0
+            },
+            {
+                "date": "2026-01-26 21:13:10",
+                "type": "Withdraw",
+                "amount": 50000.0,
+                "balance": 66422.0
+            },
+            {
+                "date": "2026-01-29 14:39:05",
+                "type": "Deposit",
+                "amount": 400.0,
+                "balance": 66822.0
+            },
+            {
+                "date": "2026-01-29 14:39:10",
+                "type": "Deposit",
+                "amount": 400.0,
+                "balance": 67222.0
+            },
+            {
+                "date": "2026-01-29 14:39:18",
+                "type": "Deposit",
+                "amount": 400.0,
+                "balance": 67622.0
+            },
+            {
+                "date": "2026-01-29 14:39:33",
+                "type": "Withdraw",
+                "amount": 1000.0,
+                "balance": 66622.0
+            },
+            {
+                "date": "2026-01-29 15:33:21",
+                "type": "Deposit",
+                "amount": 400.0,
+                "balance": 67022.0
+            },
+            {
+                "date": "2026-02-05 12:37:17",
+                "type": "Withdraw",
+                "amount": 10000.0,
+                "balance": 57022.0
+            }
+        ],
+        "name": "admin",
+        "account_number": 931157721864,
+        "account_type": "Savings",
+        "branch": "CloudBankX Main Branch",
+        "ifsc": "CBX0001234"
+    },
+    "ritik": {
+        "name": "ritik",
+        "account_number": 492927653523,
+        "account_type": "Savings",
+        "branch": "CloudBankX Main Branch",
+        "ifsc": "CBX0001234",
+        "balance": 5545.0,
+        "transactions": [
+            {
+                "date": "2026-02-05 11:14:10",
+                "type": "Deposit",
+                "amount": 4545.0,
+                "balance": 5545.0
+            }
+        ]
+    },
+    "rahul": {
+        "name": "rahul",
+        "account_number": 765003102923,
+        "account_type": "Savings",
+        "branch": "CloudBankX Main Branch",
+        "ifsc": "CBX0001234",
+        "balance": 1000.0,
+        "transactions": []
+    }
+}
